@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        form {border: 3px solid #f1f1f1;}
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color:#007aff ;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color:#007aff ;
+        }
+
+        li {
+            float:left;
+        }
+
+        lia {
+            float: right;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* Change the link color to #111 (black) on hover */
+        li a:hover {
+            background-color:;
+        }
+    </style>
+    <title>AddBaby</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!--    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="css/framework7.material.min.css">
+    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        function localcookie(a){
+            window.localStorage.setItem("cookie", a);
+            location.href="BPhase1.html";
+        }
+    </script>
+    <script>
+        $(document).ready(function(){
+            if (window.localStorage.getItem('babieslist')){
+                var list = JSON.parse(window.localStorage.getItem('babieslist'));
+                for(i=0;i<list.length;i++){
+                    $("#list ul").append('<li><a class="item-link item-content confirm-ok-cancel"'+'onClick="localcookie('+i+')"'+'> <div class="item-inner"><div class="item-title-row"><div class="item-title">Baby'+(i+1)+'   '+'baby of '+list[i].mother_name+'</div><div class="item-after" id="write">'+'</div></div><div class="item-text">Mother Name:'+list[i].mother_name+', Child.No'+list[i].child_no+'</div></div></a></li>');
+                }
+            }
+            babyTimer();
+        });
+    </script>
+</head>
+<body>
+
+
+
+
+<div class="views">
+    <div class="view view-main" style="padding-left: 10px; padding-right: 10px; padding-top: 10px;">
+        <div class="pages navbar-fixed toolbar-fixed">
+            <div class="page" data-page = "babieslist">
+                <div class="navbar" style="height: 50px;">
+                    <div class="navbar-inner" style="background-color: #007aff;">
+                        <div class="left">
+                        </div>
+                        <div class="center" style= padding-right: align="left: 29px;font-family:Arial;">BACK</div>
+                        <div class="right">
+                            <a href="#" class="link" onclick="logout()"  style= "font-family:Arial ;">LOG OFF</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                <div class="spacer" style="width: 300px; height: 40px;"></div>
+                     <div class="container" style="background-color:#f1f1f1;">
+                    <!--Media List View-->
+                         <div class="content-block-title"><b>List of Babies</b></div>
+                    <div class="list-block media-list" id="list">
+                        <ul>
+
+                        </ul>
+                    </div>
+                  </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Path to Framework7 Library JS-->
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/framework7.min.js"></script>
+<!-- Path to your app js-->
+<script type="text/javascript" src="js/my-app.js"></script>
+<!--<script type="text/javascript" src="cordova.js"></script>-->
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
