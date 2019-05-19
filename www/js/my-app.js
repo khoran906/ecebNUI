@@ -47,6 +47,30 @@ function createContentPage() {
 	return;
 }
 
+function goToPage3() {
+    location.href = "Page 3.html";
+}
+
+$$("#indvLogin").on('click', function(){
+    location.href = "Page 3.html";
+});
+
+$$("#babyReg").on('click', function() {
+    location.href = "Page 4.html";
+});
+
+$$("#babyList").on('click', function() {
+    location.href = "Page 5.html";
+});
+
+$$("#babyPhaseOne").on('click', function() {
+    location.href = "Page 6.html";
+});
+
+$$("#facLogin").on('click', function() {
+    location.href = "Page 2.html";
+});
+
 // Calender 
 var calendarModal = app.calendar.create({
   inputEl: '#demo-calendar-modal',
